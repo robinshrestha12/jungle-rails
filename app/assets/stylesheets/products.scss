@@ -29,7 +29,7 @@ main section.categories-show {
         font-size: 1rem;
         border-radius: 0.25rem;
       }
-
+     
       a {
         text-decoration: none;
       }
@@ -85,14 +85,16 @@ main section.categories-show {
           display: inline-block;
           margin-left: auto;
         }
-        button {
+        button{         
           min-width: 110px;
           padding-left: 1em;
           padding-right: 1em;
           background-color: rgba(0, 130, 29, 0.7);
-          color: white;
+          color: white;        
         }
       }
+      
+
     }
   }
 }
