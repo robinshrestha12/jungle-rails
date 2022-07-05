@@ -5,6 +5,24 @@
   </header>
 
   <div class="order-summary jumbotron">
+  <div>Order Email: <%= @order.email %></div>
+  <div>Order Total: <%= @order.total_cents / 100 %></div>
+  <table class="table table-bordered">
+  <thead>
+  <tr>
+  <th colspan="2">Product</th>
+  <th>Unit Price</th>
+  <th>Quantity</th>
+  <th>Price</th>
+  
+  </tr>
+  </thead>
+  <tbody>
+  <% @order.line_items.each do |item| %>
+    <%= render 'item', item: item %>
+    <% end %>
+
+  </tbody>
     <h4>Thank you for your order!</h4>
   </div>
 
