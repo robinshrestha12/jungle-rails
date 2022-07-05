@@ -5,8 +5,7 @@
   </header>
 
   <div class="order-summary jumbotron">
-  <div>Order Email: <%= @order.email %></div>
-  <div>Order Total: <%= @order.total_cents / 100 %></div>
+  <div>Order Email: <%= @order.email %></div><br> 
   <table class="table table-bordered">
   <thead>
   <tr>
@@ -23,6 +22,18 @@
     <% end %>
 
   </tbody>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="4">
+        TOTAL:
+      </th>
+      <th>
+        <%= humanized_money_with_symbol@order.total_cents / 100 %>
+      </th>
+    </tr>
+  </tfoot>
+  </table>
     <h4>Thank you for your order!</h4>
   </div>
 
