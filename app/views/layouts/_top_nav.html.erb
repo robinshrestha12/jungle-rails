@@ -42,6 +42,13 @@
           <%# </ul>
         </li> %>
         <%= link_to "About Us", about_index_path, class: "nav-link" %>
+        <li>
+        <% if current_user %>
+          Signed in as <%= @current_user.first_name %> | <%= link_to "Logout", '/logout' %>
+          <% else %>
+          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+          <% end %>
+        </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
