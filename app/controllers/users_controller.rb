@@ -13,10 +13,11 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
        # If user saves in the db successfully:
-     # flash[:notice] = "Account created successfully!"
+      #flash[:notice] = "Account created successfully!"
       redirect_to '/'
     else
       puts "--------------Signup Failed -----------"
+      #flash[:notice] = "User exists"
       redirect_to '/signup'
     end
   end
