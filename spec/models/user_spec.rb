@@ -135,6 +135,47 @@ describe '.authenticate_with_credentials' do
     expect(user).not_to be(nil)
    
   end
+  it 'Should not pass with invalid credential' do  
+    @user = User.new(
+      first_name: "first_name",
+      last_name: "last_name",
+      email: "email@email.com",
+      password: "password",
+      password_confirmation: 'password'
+    )
+    @user.save
+    user = User.authenticate_with_credentials('email@email.com', 'pass')
+    expect(user).to be(nil)
+   
+  end
+  it 'Should pass even if spaces are present in email' do  
+    @user = User.new(
+      first_name: "first_name",
+      last_name: "last_name",
+      email: "email@email.com",
+      password: "password",
+      password_confirmation: 'password'
+    )
+    @user.save
+    user = User.authenticate_with_credentials(' email@email.com ', 'password')
+    expect(user).not_to be(nil)
+   
+  end
+
+  it 'Should pass even if wrong case is present for email' do  
+    @user = User.new(
+      first_name: "first_name",
+      last_name: "last_name",
+      email: "example@domain.com",
+      password: "password",
+      password_confirmation: 'password'
+    )
+    @user.save
+    user = User.authenticate_with_credentials('eXample@domain.COM', 'password')
+    expect(user).not_to be(nil)
+   
+  end
+
 end
 
 
